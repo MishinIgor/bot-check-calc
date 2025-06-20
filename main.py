@@ -1,4 +1,4 @@
-import telebot, random, time
+import telebot, random, time, re
 
 TOKEN = "7156821999:AAFEvOMteaRh7ZGbNuHrDr3NmRIpjP9Sfl0"
 
@@ -98,7 +98,8 @@ def add_out_primers(message):
 def out_rezult(enss,primers):
     itog = """"""
     for i in range(len(enss)):
-        if eval(primers[i]) == int(enss[i]):
+        answer = ''.join(re.findall(r'\d+', str(enss[i])))
+        if answer and eval(primers[i]) == int(answer):
             itog += f"{i+1}. " + primers[i] + '=' + enss[i] + " ☑️ " + f" время: {times[i]} сек." + "\n"
         else:
             itog += f"{i+1}. " + primers[i] + '=' + enss[i] + " 🚫 " + f" Верный: {eval(primers[i])} " + f" время: {times[i]} сек." + "\n"
