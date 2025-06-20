@@ -1,8 +1,6 @@
 version: "3"
 
 services:
-  bcc:
+  app:
     build: .
     command: python ./main.py
-    ports:
-      - 8080:80
