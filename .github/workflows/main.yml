@@ -15,4 +15,4 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
       - name: Build image and run service
-        run: docker-compose up -d
+        run: docker-compose stop && docker-compose up -d
